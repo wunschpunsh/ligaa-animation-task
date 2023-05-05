@@ -39,6 +39,6 @@ mixin intro()
             each item in introLinks
               li.intro__cards-item
                 a.card-simple(href=`${item.href}`)
-                  h2.card-simple__title.title.title--h2!=`${item.text}`
+                  h2.card-simple__title.title.title--h3!=`${item.text}`
       .intro__bg
         video(src="./video/background-wave.mp4" alt="волны" autoplay="true" loop playisinline muted="true")

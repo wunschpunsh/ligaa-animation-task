@@ -1,0 +1,142 @@
+-
+  const tasks = [
+    {
+      id: 'menu',
+      title: 'Меню тз',
+      description: [
+        {
+          text: '<b>Анимация появления</b>',
+        },
+        {
+          text: 'При открытии: Сначала появляется меню, затем внутренний контент. Пункты внутри появляются с разной задержкой - эффект "лесенки"'
+        },
+        {
+          text: 'При закрытии: Внутренний контент исчезает до закрытия меню, без задержки '
+        },
+        {
+          text: '<b>JS</b>'
+        },
+        {
+          text: 'Для блокировки скролла используется window.scrollLock'
+        },
+        {
+          text: 'Должны быть реализованы функции или методы для открытия и закрытия меню, которые можно использовать в других модулях'
+        }
+      ]
+    },
+    {
+      id: 'loader',
+      title: 'Лоадер тз',
+      description: [
+        {
+          text: 'Анимация лоадера произвольная, можно использовать css keyframes или gsap'
+        },
+          {
+            text: 'После загрузки страницы мы всегда находимся вверху страницы (не должно быть видно скачка)'
+        },
+          {
+            text: 'Скролл страницы заблокирован во время загрузки'
+        }
+      ]
+    },
+    {
+      id: 'first-screen',
+      title: 'Сборка первого экрана тз',
+      description: [
+        {
+          text: 'Для анимации используйте неколько разных css свойств и небольшие задержки'
+        },
+        {
+          text: 'Для построчной или посимвольной анимации текста используйте <a href="https://splitting.js.org" target="_blank">splitting.js</a> (пример: интро этого сайта)'
+        }
+      ]
+    },
+    {
+      id: 'show-on-scroll',
+      title: 'Появление блоков',
+      description: [
+        {
+          text: 'доскролили и вжух!'
+        },
+          {
+            text: 'Можно делать через классы и высчитывать по скроллу getBoundingClientRect каждого блока, но гораздо проще использовать ScrollTrigger.batch()'
+        }
+      ],
+      cardsBlocks: [
+        {
+          dataValue: 'fade',
+          text: 'fade'
+        },
+        {
+          dataValue: 'fade',
+          text: 'fade'
+        },
+        {
+          dataValue: 'fadeIn',
+          text: 'fade-in'
+        },
+        {
+          dataValue: 'fadeIn',
+          text: 'fade-in'
+        },
+        {
+          dataValue: 'fadeScale',
+          text: 'fade-scale'
+        },
+        {
+          dataValue: 'fadeScale',
+          text: 'fade-scale'
+        }
+      ]
+    },
+    {
+      id: 'parallax',
+      title: 'Параллакс по скроллу',
+      description: [
+        {
+          text: 'Эффекты, которые постоянно срабатывают по скроллу<br>Скроллим скроллим и вжух вжух вжух!'
+        }
+      ],
+      cardsParallax: [
+        {
+          dataValue: 'fadeScale',
+          text: 'fade-scale'
+        },
+        {
+          dataValue: 'fadeScale',
+          text: 'fade-scale'
+        },
+        {
+          dataValue: 'transformY',
+          text: 'transform y'
+        },
+        {
+          dataValue: 'transformY',
+          text: 'transform y'
+        },
+      ],
+      dataName: 'parallax'
+    }
+  ]
+
+
+mixin task()
+  each item in tasks
+    section.task(id=`${item.id}`)
+      .container
+        .content-block
+          h2!=item.title
+          each paragraph in item.description
+            p!=paragraph.text
+          if (item.cardsBlocks)
+            .task__cards-container
+              each card in item.cardsBlocks
+                div(data-animate=`${card.dataValue}`)
+                  .card-simple.card-simple--centered.card-simple--dark
+                    p.title.title--h3!=card.text
+          if (item.cardsParallax)
+            .task__cards-container
+              each card in item.cardsParallax
+                div(data-parallax=`${card.dataValue}`)
+                  .card-simple.card-simple--centered.card-simple--dark
+                    p.title.title--h3!=card.text

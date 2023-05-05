@@ -1,13 +1,103 @@
 .header {
-  padding: 28px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 15px 0;
+  background-color: transparent;
 
-  background-color: $color-neon-blue;
+  background-color: $color-transparent;
 
   .container {
+    position: relative;
+    z-index: 2;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  &__logo {
-    color: $color-default-white;
+  &.menu-opened {
+    .header__logo {
+      color: $color-default-white;
+    }
+  }
+}
+
+.header__logo {
+  width: 181px;
+  height: 33px;
+  fill: $color-night-rider;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.header__toggle {
+  position: relative;
+  width: 36px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: 0 0;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 36px;
+    height: 2px;
+
+    transition: transform .3s ease, background-color .3s ease;
+    transition: transform .3s ease, background-color .3s ease;
+    background-color: $color-night-rider;
+  }
+
+  @include hover-focus {
+    &::before {
+      transform: translate3d(4px, 0, 0);
+    }
+
+    &::after {
+      transform: translate3d(-4px, 0, 0);
+    }
+  }
+
+  &::before {
+    bottom: 13px;
+  }
+
+  &::after {
+    top: 13px;
+  }
+
+
+  &.is-active {
+
+    @include hover-focus {
+      &::before {
+        transform: translate3d(0, -6px, 0) rotate(39deg);
+      }
+
+      &::after {
+        transform: translate3d(0, 5px, 0) rotate(-39deg);
+      }
+    }
+
+    &::before {
+      transform: translate3d(0, -6px, 0) rotate(45deg);
+      background-color: $color-default-white;
+    }
+
+    &::after {
+      transform: translate3d(0, 5px, 0) rotate(-45deg);
+      background-color: $color-default-white;
+    }
   }
 }

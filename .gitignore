@@ -2,7 +2,6 @@
 .idea
 .vscode
 .nvmrc
-package-lock.json
 *.ai
 *.log
 *.psd
@@ -12,3 +11,4 @@ npm-debug.*
 source/css/*.css
 source/css/*.map
 Thumbs.db
+build

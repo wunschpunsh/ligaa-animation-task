@@ -16,7 +16,7 @@
     @for $i from 1 to 6 {
       .main-nav__item:nth-child(#{$i}) .main-nav__link {
         transition-delay: calc(0.25s + $i * 0.08s);
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
       }
     }
   }
@@ -73,7 +73,7 @@
 }
 
 .main-nav__link {
-  transform: translateY(100px);
+  transform: translate3d(0, 110%, 0);
   display: block;
   width: max-content;
   transition: transform ease 0.4s;
@@ -94,7 +94,7 @@
     @include hover-focus {
       span {
         transition-delay: 0s;
-        transform: translateX(30px);
+        transform: translate3d(30px, 0, 0);
       }
     }
   }

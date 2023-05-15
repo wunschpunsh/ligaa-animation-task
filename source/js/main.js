@@ -6,7 +6,7 @@ import {iosVhFix} from './utils/ios-vh-fix';
 import {initMenu} from './modules/init-menu';
 import {Preloader} from './modules/preloader';
 import {initSplitter} from './modules/init-splitting';
-
+import {initScrollTo} from './modules/init-scroll-to';
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     initMenu();
     initSplitter();
-
+    initScrollTo();
     // initModals();
     // uploadFile();
     // uploadImageDrop();

@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   background-color: $color-night-rider;
-  transition: visibility $trans-default, z-index $trans-default, clip-path cubic-bezier(.55, 0, .44, .99) 0.4s;
+  transition: visibility linear 0.3s, z-index linear 0.3s, clip-path linear 0.3s;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 110%);
 }
 

@@ -28,17 +28,16 @@
 
 
 mixin intro()
-  section.intro
+  section.intro(id="intro")
     .intro__sticky
       .container
         .intro__heading
-          h1.intro__title.title Задачки<br> на прокачку
-          p.intro__description Задачи на интерфейсную логику,<br> которые часто встречаются<br> на реальных проектах
+          h1.intro__title.title(data-splitting) Задачки<br> на прокачку
+          p.intro__description(data-splitting) Задачи на интерфейсную логику,<br> которые часто встречаются<br> на реальных проектах
         nav.intro__cards
           ul.intro__cards-list
             each item in introLinks
-              li.intro__cards-item
-                a.card-simple(href=`${item.href}`)
-                  h2.card-simple__title.title.title--h3!=`${item.text}`
+              a.card-simple(href=`${item.href}`)
+                h2.card-simple__title.title.title--h3!=`${item.text}`
       .intro__bg
         video(src="./video/background-wave.mp4" alt="волны" autoplay="true" loop playisinline muted="true")

@@ -6,6 +6,9 @@
   min-height: 115px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.6);
+  transition: opacity 0.35s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: scale(0.6);
 
   &--centered {
     justify-content: center;
@@ -16,9 +19,24 @@
     background-color: #e3e3e3;
   }
 
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i * .05 + 0.1}s;
+    }
+  }
 
   @include hover-focus {
     opacity: 0.7;
+  }
+
+
+  @include vp-1023 {
+    padding: 15px;
+    min-height: 110px;
+  }
+
+  @include vp-767 {
+    min-height: unset;
   }
 }
 

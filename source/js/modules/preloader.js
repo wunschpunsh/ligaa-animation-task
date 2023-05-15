@@ -3,6 +3,7 @@ import {ScrollLock} from '../utils/scroll-lock';
 export class Preloader {
   constructor() {
     this.preloader = document.querySelector('[data-preloader]');
+    this.intro = document.querySelector('#intro');
     this.scrollLock = new ScrollLock();
     this.event = new Event('loaderOff');
     this.pageLoaded = false;
@@ -21,13 +22,17 @@ export class Preloader {
       return;
     }
     this.preloader.classList.add('is-hidden');
+
+    setTimeout(() => {
+      this.intro.classList.add('is-show');
+    }, 500);
   }
 
   init() {
     window.scrollTo(0, 0);
     this.on();
     window.addEventListener('load', () => {
-      setTimeout(this.off, 2000);
+      setTimeout(this.off, 100);
     });
   }
 }

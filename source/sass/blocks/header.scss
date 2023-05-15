@@ -6,9 +6,11 @@
   z-index: 100;
   width: 100%;
   padding: 15px 0;
-  background-color: transparent;
-
   background-color: $color-transparent;
+
+  @include vp-767 {
+    padding: 12px 0;
+  }
 
   .container {
     position: relative;
@@ -19,7 +21,6 @@
   }
 
   &.menu-opened {
-    padding-right: 17px;
 
     .header__logo {
       color: $color-default-white;
@@ -31,6 +32,11 @@
   width: 181px;
   height: 33px;
   fill: $color-night-rider;
+
+  @include vp-767 {
+    width: 145px;
+    height: 26px;
+  }
 
   svg {
     display: block;

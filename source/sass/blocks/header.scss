@@ -19,6 +19,8 @@
   }
 
   &.menu-opened {
+    padding-right: 17px;
+
     .header__logo {
       color: $color-default-white;
     }

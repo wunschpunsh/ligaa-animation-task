@@ -36,6 +36,8 @@ html(lang="ru")
     .wrapper(class=wrapperMods)
       if (hasHeader)
         +header(headerMods, currentUrl)
+      if(hasPreloader)
+        +preloader()
 
       block main
 

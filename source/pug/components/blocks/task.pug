@@ -136,5 +136,5 @@ mixin task()
           if (item.cardsParallax)
             .task__cards-container
               each card in item.cardsParallax
-                .card-simple.card-simple--centered.card-simple--dark(data-animate=`${card.dataValue}`)
+                .card-simple.card-simple--centered.card-simple--dark(data-parallax=`${card.dataValue}`)
                   p.title.title--h3!=card.text

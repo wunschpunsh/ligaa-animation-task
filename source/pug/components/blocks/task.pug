@@ -131,12 +131,10 @@ mixin task()
           if (item.cardsBlocks)
             .task__cards-container
               each card in item.cardsBlocks
-                div(data-animate=`${card.dataValue}`)
-                  .card-simple.card-simple--centered.card-simple--dark
-                    p.title.title--h3!=card.text
+                .card-simple.card-simple--centered.card-simple--dark(data-animate=`${card.dataValue}`)
+                  p.title.title--h3!=card.text
           if (item.cardsParallax)
             .task__cards-container
               each card in item.cardsParallax
-                div(data-parallax=`${card.dataValue}`)
-                  .card-simple.card-simple--centered.card-simple--dark
-                    p.title.title--h3!=card.text
+                .card-simple.card-simple--centered.card-simple--dark(data-animate=`${card.dataValue}`)
+                  p.title.title--h3!=card.text

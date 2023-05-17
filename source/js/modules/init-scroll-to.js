@@ -2,8 +2,8 @@ const scrollToHandler = (evt) => {
   evt.preventDefault();
   const btn = evt.target.closest('[data-move-to]');
   const target = document.querySelector(btn.dataset.moveTo);
-  // eslint-disable-next-line no-undef
-  gsap.to(window, 0.5, {
+
+  window.gsap.to(window, 0.5, {
     scrollTo: {
       y: target,
     },

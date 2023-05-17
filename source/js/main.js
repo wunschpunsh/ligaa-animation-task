@@ -7,6 +7,7 @@ import {initMenu} from './modules/init-menu';
 import {Preloader} from './modules/preloader';
 import {initSplitter} from './modules/init-splitting';
 import {initScrollTo} from './modules/init-scroll-to';
+import {initShowBlocksOnScroll} from './modules/animations/init-scroll-show-blocks';
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initMenu();
     initSplitter();
     initScrollTo();
+    initShowBlocksOnScroll();
     // initModals();
     // uploadFile();
     // uploadImageDrop();

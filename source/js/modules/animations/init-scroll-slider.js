@@ -2,28 +2,28 @@ import {ScrollTrigger} from '../../vendor/scroll-trigger';
 const parentSlides = document.querySelector('[data-scroll-slider="parent"]');
 const slides = document.querySelectorAll('[data-scroll-slider="slide"]');
 
-slides[0].classList.add('is-active');
-
 let currentSlide;
 
 const backgroundImages = [
   'url(img/svg/architect-bg.svg)',
   'url(img/svg/squares-bg.svg)',
   'url(img/svg/plus-bg.svg)',
-  'url(img/svg/graph-paper-bg.svg)'
+  'url(img/svg/graph-paper-bg.svg)',
 ];
 
 let countHeightSlide = 0;
 
-const setBackground = () => {
-  slides.forEach((item, index) => {
-    item.style.backgroundImage = backgroundImages[index];
-  });
-};
-const setSlidesHeight = () => {
-  slides.forEach((slide) => {
+const setDefaultParam = () => {
+  if (!parentSlides) {
+    return;
+  }
+
+  slides[0].classList.add('is-active');
+  slides.forEach((slide, index) => {
+    slide.style.backgroundImage = backgroundImages[index];
     countHeightSlide += slide.clientHeight;
   });
+
   window.gsap.set(parentSlides, {minHeight: countHeightSlide + 'px'});
 };
 
@@ -41,8 +41,7 @@ const switchSlide = (self) => {
 };
 
 const initScrollSlider = () => {
-  setSlidesHeight();
-  setBackground();
+  setDefaultParam();
 
   ScrollTrigger.create({
     trigger: parentSlides,

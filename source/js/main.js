@@ -9,6 +9,7 @@ import {initSplitter} from './modules/init-splitting';
 import {initScrollTo} from './modules/init-scroll-to';
 import {initShowBlocksOnScroll} from './modules/animations/init-scroll-show-blocks';
 import {initParallaxScroll} from './modules/animations/init-scroll-parallax';
+import {initScrollSlider} from './modules/animations/init-scroll-slider';
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initScrollTo();
     initShowBlocksOnScroll();
     initParallaxScroll();
+    initScrollSlider();
     // initModals();
     // uploadFile();
     // uploadImageDrop();

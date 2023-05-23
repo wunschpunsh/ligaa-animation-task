@@ -6,15 +6,15 @@ block variables
   - const hasHeader = true
   - const headerMods = ""
   - const footerMods = ""
-  - const currentUrl = "index.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+  - const currentUrl = "map-1.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
   - const hasPreloader = false
+  - const hasMap = true
 
 block main
   main
     //- на странице запрещен "голый" код
     //- все блоки вставляются из папки pug/components/blocks
-    //- +intro()
-    //- +task()
-    //- +scroll-slider()
+    +map(currentUrl, 1)
+
 
 block modals

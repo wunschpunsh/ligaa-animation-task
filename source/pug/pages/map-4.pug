@@ -1,0 +1,19 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Анимации" //- на страницах кроме главной используйте О нас — ProjectName
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const footerMods = ""
+  - const currentUrl = "map-4.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+  - const hasPreloader = false
+
+block main
+  main
+    //- на странице запрещен "голый" код
+    //- все блоки вставляются из папки pug/components/blocks
+    +map(currentUrl, 4)
+
+
+block modals

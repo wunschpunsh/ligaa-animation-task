@@ -33,11 +33,16 @@ const switchSlide = (self) => {
   } else {
     currentSlide = Math.ceil(self.progress / (1 / slides.length) - 1);
   }
+
+  if (!slides) {
+    return;
+  }
+
   slides.forEach((slide) => {
     slide.classList.remove('is-active');
   });
 
-  slides[currentSlide].classList.add('is-active');
+  slides[currentSlide]?.classList.add('is-active');
 };
 
 const initScrollSlider = () => {

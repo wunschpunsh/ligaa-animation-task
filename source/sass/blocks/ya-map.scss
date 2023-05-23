@@ -1,0 +1,50 @@
+.ya-map {
+  padding: calc(70px + 50px) 0 100vh 0;
+
+  @include vp-767 {
+    padding: calc(64px + 50px) 0 100vh 0;
+  }
+}
+
+.ya-map__title {
+  margin: 0 0 60px 0;
+}
+
+.ya-map__inner {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 700px;
+  margin: 100px 0 0 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 2px rgba($color-default-black, 0.4);
+}
+
+.ya-map__map {
+  width: 100%;
+  height: 100%;
+}
+
+.ya-map__message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity $trans-default;
+  transform: translate3d(-50%, -50%, 0);
+  pointer-events: none;
+  opacity: 0;
+  //color: $color-neon-blue;
+  color: $color-default-white;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

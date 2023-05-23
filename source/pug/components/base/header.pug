@@ -2,7 +2,7 @@ mixin header(headerMods, currentUrl)
   -
     const headerLinks = [
       {
-        href: "index.html",
+        href: "animations.html",
         text: "Анимации"
       },
       {
@@ -25,12 +25,12 @@ mixin header(headerMods, currentUrl)
 
   header.header(class=headerMods data-header)
     .container
-      if(currentUrl === "index.html")
+      if(currentUrl === "animations.html")
         //- lighthouse снимает 10 баллов SEO за <a> без href
         span.header__logo
           +icon('logo', 362, 67)
       else
-        a.header__logo(href="index.html" aria-label="Переход на главную")
+        a.header__logo(href="animations.html" aria-label="Переход на главную")
           +icon('logo', 362, 67)
       button.header__toggle(data-menu-button)
     nav.main-nav(data-menu)

@@ -48,3 +48,15 @@
     pointer-events: all;
   }
 }
+
+
+.map-pin {
+  position: relative;
+  transform: translate3d(0, 0, 0);
+
+  &__logo {
+    svg {
+      filter: drop-shadow(4px 4px 8px rgba(34, 60, 80, 0.2));
+    }
+  }
+}

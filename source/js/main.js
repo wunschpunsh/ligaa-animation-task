@@ -10,7 +10,7 @@ import {initScrollTo} from './modules/init-scroll-to';
 import {initShowBlocksOnScroll} from './modules/animations/init-scroll-show-blocks';
 import {initParallaxScroll} from './modules/animations/init-scroll-parallax';
 import {initScrollSlider} from './modules/animations/init-scroll-slider';
-import {initMap} from './modules/init-map';
+import {initMaps} from './modules/maps/init-maps';
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -38,7 +38,8 @@ window.addEventListener('DOMContentLoaded', () => {
     initShowBlocksOnScroll();
     initParallaxScroll();
     initScrollSlider();
-    window.ymaps.ready(initMap);
+    initMaps();
+
     // initModals();
     // uploadFile();
     // uploadImageDrop();

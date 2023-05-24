@@ -1,0 +1,138 @@
+.placemark {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  outline: 0;
+  transition: z-index $trans-default, transform $trans-default, visibility $trans-default;
+  transform: translate3d(0, 0, 0);
+  z-index: 1;
+}
+
+.placemark__icon {
+  width: 48px;
+  height: 48px;
+  background-color: $color-maya-blue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.placemark-balloon {
+  max-width: 400px;
+  width: max-content;
+  display: flex;
+  box-shadow: 8px 8px 13px 1px rgba(34, 60, 80, 0.2);
+  z-index: 3;
+  transition: opacity .6s ease, visibility .6s ease, transform .6s ease;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transform: translateX(-50%);
+}
+
+.placemark-balloon__inner {
+  display: flex;
+
+  background-color: $color-default-white;
+  height: 100%;
+}
+
+.placemark-balloon__image {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.placemark-balloon__wrap {
+  padding: 10px 20px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.placemark-balloon__head {
+  color: #aaa5a0;
+  font-size: 10px;
+  line-height: 14px;
+  margin: 0 0 10px 0;
+}
+
+.placemark-balloon__title {
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.placemark-balloon__text {
+  font-size: 10px;
+  line-height: 14px;
+  margin: 0;
+}
+
+.placemark-balloon__close-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  background-color: $color-transparent;
+  padding: 0;
+
+  svg {
+    fill: $color-default-black;
+  }
+}
+
+
+.cluster-balloon {
+  display: flex;
+  flex-direction: column;
+}
+
+.cluster-balloon__image {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+
+  img {
+    height: 80px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.cluster-balloon__wrap {
+  padding: 10px;
+}
+
+.cluster-balloon__head {
+  color: #aaa5a0;
+  font-size: 10px;
+  line-height: 14px;
+  margin: 0 0 10px;
+  text-align: right;
+}
+
+.cluster-balloon__title {
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.cluster-balloon__text {
+  font-size: 10px;
+  line-height: 14px;
+  margin: 0;
+}

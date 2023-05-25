@@ -9,7 +9,7 @@ const initMap2 = () => {
     controls: [],
   });
 
-  map2.behaviors.disable('scrollZoom');
+  map2.behaviors.disable(['scrollZoom', 'dblClickZoom']);
 
   const mainPin = window.ymaps.templateLayoutFactory.createClass(
       ' <div class="map-pin"><div class="map-pin__logo"><svg width="60" height="60" aria-hidden="true"><use xlink:href="#icon-dino-pin"></use></svg></div></div>'
@@ -34,7 +34,28 @@ const initMap2 = () => {
 
   const MyBalloonContentLayoutClass =
     window.ymaps.templateLayoutFactory.createClass(
-        '<div class="placemark-balloon__inner"><div class="placemark-balloon__image"><img src={{properties.balloonImage}} width="101" height="94" alt="{{propetries.balloonAlt}}"></div><div class="placemark-balloon__wrap"><p class="placemark-balloon__head">{{properties.balloonTextHead}}</p><p class="placemark-balloon__title">{{properties.balloonTextTitle}}</p><p class="placemark-balloon__text"><span>{{properties.balloonAdress}}</span></p></div><button class="placemark-balloon__close-btn" type="button"><svg width="12" height="12" aria-hidden="true"><use xlink:href="#icon-close"></use></svg></button></div>'
+        '<div class="placemark-balloon__inner"><div class="placemark-balloon__image"><img src={{properties.balloonImage}} width="101" height="94" alt="{{propetries.balloonAlt}}"></div><div class="placemark-balloon__wrap"><p class="placemark-balloon__head">{{properties.balloonTextHead}}</p><p class="placemark-balloon__title">{{properties.balloonTextTitle}}</p><p class="placemark-balloon__text"><span>{{properties.balloonAdress}}</span></p></div><button class="placemark-balloon__close-btn" type="button"><svg width="12" height="12" aria-hidden="true"><use xlink:href="#icon-close"></use></svg></button></div>', {
+          build() {
+            MyBalloonContentLayoutClass.superclass.build.call(this);
+            this._element = this.getParentElement().querySelector(
+                '.placemark-balloon__inner'
+            );
+            this._onCloseClick = this.onCloseClick.bind(this);
+            this._element
+                .querySelector('.placemark-balloon__close-btn')
+                .addEventListener('click', this._onCloseClick);
+          },
+
+          clear() {
+            this._element.querySelector('.placemark-balloon__close-btn').removeEventListener('click', this._onCloseClick);
+            MyBalloonContentLayoutClass.superclass.clear.call(this);
+          },
+
+          onCloseClick(evt) {
+            evt.preventDefault();
+            this.events.fire('userclose');
+          },
+        }
     );
 
   const myCollection = new window.ymaps.GeoObjectCollection({}, {});

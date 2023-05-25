@@ -117,6 +117,9 @@ mixin map(currentUrl, number)
           p!=task.paragraph
       .ya-map__inner
         .ya-map__map(id=`map-${number}`)
+        if (currentUrl === "map-3.html" || currentUrl === "map-4.html")
+          .ya-map__message
+            p Зажмите ctrl и крутите колесо прокрутки мышки, что бы приблизить карту
       if (currentUrl === "map-3.html")
         .map-filter
           form.map-filter__form(action="#" novalidate)

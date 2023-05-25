@@ -8,7 +8,7 @@ const initMap1 = () => {
     zoom: 17,
     controls: [],
   });
-  map1.behaviors.disable('scrollZoom');
+  map1.behaviors.disable(['scrollZoom', 'dblClickZoom']);
 
   const mainPin = window.ymaps.templateLayoutFactory.createClass(
       ' <div class="map-pin"><div class="map-pin__logo"><svg width="90" height="108" aria-hidden="true"><use xlink:href="#icon-dino-pin"></use></svg></div></div>'

@@ -23,7 +23,7 @@
   const map3 = {
     tasks: [
       {
-        paragraph: "На десктопной версии при скролле колесиком мышки, карта не должна масштабироваться.",
+        paragraph: "На десктопной версии при скролле колесиком мышки, карта не должна масштабироваться. Масштабировать ее можно только при нажатии клавиши Ctrl + колесико мышки. Если пользователь навел курсор на карту и начинает скролить мышкой, то на карте должен появиться overlay с инструкцией, что для того что бы масштабировать карту нажмите Ctrl + колесико мышки",
       },
       {
         paragraph: "Создать и расположить пины на карте из json файла. При клике на каждый пин выводить какую нибудь информацию в небольшом всплывающем окошке, которое будет появляться над пином"
@@ -33,6 +33,46 @@
       },
       {
         paragraph: "Если выбран изначально фильтр 'Все объекты' и открыт у кого нибудь пина баллун, то при активации фильтра этого пина у которого открыт баллун, карта должна отфильтроваться, но баллун не должен закрываться. Если у пина открыт баллун и мы выбираем другой фильтр, то баллун должен закрыться"
+      }
+    ],
+
+    filter: [
+      {
+        text: "Все объекты",
+        value: "all",
+        id: "filterAll",
+        icon: "icon-all-objects",
+        checked: 'true',
+      },
+      {
+        text: "Парки",
+        value: "park",
+        id: "filterPark",
+        icon: "icon-park",
+      },
+      {
+        text: "Музеи",
+        value: "museum",
+        id: "filterMuseum",
+        icon: "icon-museum",
+      },
+      {
+        text: "Дет. сады",
+        value: "children",
+        id: "filterChildren",
+        icon: "icon-children",
+      },
+      {
+        text: "Поликлиники",
+        value: "hospital",
+        id: "filterHospital",
+        icon: "icon-hospital",
+      },
+      {
+        text: "Школы",
+        value: "school",
+        id: "filterSchool",
+        icon: "icon-school",
       }
     ]
   }
@@ -77,3 +117,14 @@ mixin map(currentUrl, number)
           p!=task.paragraph
       .ya-map__inner
         .ya-map__map(id=`map-${number}`)
+      if (currentUrl === "map-3.html")
+        .map-filter
+          form.map-filter__form(action="#" novalidate)
+            .map-filter__list
+              each item in map3.filter
+                .map-filter__item
+                  input.visually-hidden(type="radio" name="filterList" value=`${item.value}` id=item.id checked=item.checked)
+                  label.map-filter__label(for=`${item.id}`)
+                    .map-filter__icon
+                      +icon(`${item.icon}`, 50, 50)
+                    span!=item.text

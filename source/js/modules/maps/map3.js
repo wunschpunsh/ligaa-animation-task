@@ -14,19 +14,21 @@ const initMap3 = () => {
   getPlacemarks().then((placemarks) => {
     addPlacemarksToMap(map3, placemarks);
 
+    const pinsContainer = map3.geoObjects.get(1);
     filterButtons.addEventListener('change', (evt) => {
       const targetButton = evt.target.value;
-      if (targetButton === 'all') {
-        addPlacemarksToMap(map3, placemarks);
-        return;
-      }
-      const sort = placemarks.filter((item) => {
-        const category = item.properties._data.category;
-        return category === targetButton;
+
+      placemarks.forEach((placemark) => {
+        const category = placemark.properties._data.category;
+
+        if (category === targetButton || targetButton === 'all') {
+          if (!placemark.getParent()) {
+            pinsContainer.add(placemark);
+          }
+        } else if (placemark.getParent()) {
+          pinsContainer.remove(placemark);
+        }
       });
-      map3.geoObjects.removeAll();
-      addMainPin(map3, 60, 60);
-      addPlacemarksToMap(map3, sort);
     });
   });
 

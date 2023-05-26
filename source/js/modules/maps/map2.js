@@ -1,4 +1,9 @@
-import {initMap, addMainPin, getPlacemarks, addPlacemarksToMap} from './utils';
+import {
+  initMap,
+  addMainPin,
+  getPlacemarks,
+  addPlacemarksToMap
+} from './map-utils';
 
 const initMap2 = () => {
   const map2 = initMap('#map-2', 15);

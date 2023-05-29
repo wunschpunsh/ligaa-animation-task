@@ -123,10 +123,49 @@ const getPlacemarks = () => {
       );
 };
 
-const addPlacemarksToMap = (map, placemarks) => {
-  const myCollection = new window.ymaps.GeoObjectCollection({}, {});
-  placemarks.forEach((placemark) => myCollection.add(placemark));
-  map.geoObjects.add(myCollection);
+const addCluster = () => {
+  let customItemContentLayout = window.ymaps.templateLayoutFactory.createClass(`
+  <div class="cluster-balloon">
+    <div class="cluster-balloon__image">
+      <img src="{{properties.balloonImage}}" width="101" height="94" alt="{{properties.imageAlt}}">
+    </div>
+    <div class="cluster-balloon__wrap">
+      <p class="cluster-balloon__head">{{properties.balloonTextHead}}</p>
+      <p class="cluster-balloon__title">{{properties.balloonTextTitle}}</p>
+      <p class="cluster-balloon__text ">
+        <span>{{properties.balloonAdress}}</span>
+      </p>
+    </div>
+  </div>
+`);
+
+  let clusterer = new window.ymaps.Clusterer({
+    gridSize: 12800,
+    preset: 'islands#brownClusterIcons',
+    clusterDisableClickZoom: true,
+    clusterOpenBalloonOnClick: true,
+    clusterBalloonContentLayout: 'cluster#balloonCarousel',
+    clusterBalloonItemContentLayout: customItemContentLayout,
+    clusterBalloonPanelMaxMapArea: 0,
+    clusterBalloonContentLayoutWidth: 300,
+    clusterBalloonContentLayoutHeight: 180,
+    clusterBalloonPagerSize: 5,
+    clusterBalloonPagerType: 'marker',
+  });
+
+  return clusterer;
+};
+
+const addPlacemarksToMap = (map, placemarks, param) => {
+  let myPlacemarks;
+  if (param === 'cluster') {
+    myPlacemarks = addCluster();
+  } else {
+    myPlacemarks = new window.ymaps.GeoObjectCollection({}, {});
+  }
+
+  placemarks.forEach((placemark) => myPlacemarks.add(placemark));
+  map.geoObjects.add(myPlacemarks);
 };
 
 const addScaling = (map, containerClass, messageClass, activeClass) => {

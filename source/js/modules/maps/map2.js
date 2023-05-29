@@ -5,7 +5,7 @@ import {
   addPlacemarksToMap
 } from './map-utils';
 
-const initMap2 = () => {
+const addMap2 = () => {
   const map2 = initMap('#map-2', 15);
   addMainPin(map2, 60, 60);
 
@@ -13,4 +13,4 @@ const initMap2 = () => {
     addPlacemarksToMap(map2, placemarks);
   });
 };
-export {initMap2};
+export {addMap2};

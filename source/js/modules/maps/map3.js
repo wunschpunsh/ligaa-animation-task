@@ -6,7 +6,7 @@ import {
   addScaling
 } from './map-utils';
 
-const initMap3 = () => {
+const addMap3 = () => {
   const filterButtons = document.querySelector('.map-filter__list');
   const map3 = initMap('#map-3', 15);
   addMainPin(map3, 60, 60);
@@ -34,4 +34,4 @@ const initMap3 = () => {
 
   addScaling(map3, '.ya-map__inner', '.ya-map__message', 'is-active');
 };
-export {initMap3};
+export {addMap3};

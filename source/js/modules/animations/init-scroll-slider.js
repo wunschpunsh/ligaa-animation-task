@@ -8,7 +8,7 @@ const backgroundImages = [
   'url(img/svg/architect-bg.svg)',
   'url(img/svg/squares-bg.svg)',
   'url(img/svg/plus-bg.svg)',
-  'url(img/svg/graph-paper-bg.svg)',
+  'url(img/svg/graph-paper-bg.svg)'
 ];
 
 let countHeightSlide = 0;
@@ -34,15 +34,12 @@ const switchSlide = (self) => {
     currentSlide = Math.ceil(self.progress / (1 / slides.length) - 1);
   }
 
-  if (!slides) {
-    return;
-  }
-
   slides.forEach((slide) => {
     slide.classList.remove('is-active');
   });
-
-  slides[currentSlide]?.classList.add('is-active');
+  if (slides.length > 0) {
+    slides[currentSlide].classList.add('is-active');
+  }
 };
 
 const initScrollSlider = () => {

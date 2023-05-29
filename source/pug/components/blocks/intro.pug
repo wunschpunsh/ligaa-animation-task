@@ -35,9 +35,9 @@ mixin intro()
           h1.intro__title.title(data-splitting) Задачки<br> на прокачку
           p.intro__description(data-splitting) Задачи на интерфейсную логику,<br> которые часто встречаются<br> на реальных проектах
         nav.intro__cards
-          ul.intro__cards-list
+          .intro__cards-list
             each item in introLinks
               a.card-simple(href=`${item.href}` data-move-to=`${item.href}`)
                 h2.card-simple__title.title.title--h3!=`${item.text}`
       .intro__bg
-        video(src="./video/background-wave.mp4" alt="волны" autoplay="true" loop playisinline muted="true")
+        video(src="./video/background-wave.mp4" autoplay loop muted)

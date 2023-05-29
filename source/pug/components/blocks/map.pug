@@ -38,13 +38,6 @@
 
     filter: [
       {
-        text: "Все объекты",
-        value: "all",
-        id: "filterAll",
-        icon: "icon-all-objects",
-        checked: 'true',
-      },
-      {
         text: "Парки",
         value: "park",
         id: "filterPark",
@@ -124,10 +117,14 @@ mixin map(currentUrl, number)
         .map-filter
           form.map-filter__form(action="#" novalidate)
             .map-filter__list
+              .map-filter__item
+                  input.visually-hidden(type="radio" name="filterList" value='all' id="filterAll" checked)
+                  label.map-filter__label(for="filterAll")
+                    +icon("icon-all-objects", 50, 50)
+                    span Все объекты
               each item in map3.filter
                 .map-filter__item
-                  input.visually-hidden(type="radio" name="filterList" value=`${item.value}` id=item.id checked=item.checked)
+                  input.visually-hidden(type="radio" name="filterList" value=`${item.value}` id=item.id)
                   label.map-filter__label(for=`${item.id}`)
-                    .map-filter__icon
-                      +icon(`${item.icon}`, 50, 50)
+                    +icon(`${item.icon}`, 50, 50)
                     span!=item.text

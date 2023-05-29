@@ -21,7 +21,6 @@
   }
 
   &.menu-opened {
-
     .header__logo {
       color: $color-default-white;
     }
@@ -61,9 +60,7 @@
     left: 0;
     width: 36px;
     height: 2px;
-
-    transition: transform .3s ease, background-color .3s ease;
-    transition: transform .3s ease, background-color .3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     background-color: $color-night-rider;
   }
 
@@ -85,9 +82,7 @@
     top: 13px;
   }
 
-
   &.is-active {
-
     @include hover-focus {
       &::before {
         transform: translate3d(0, -6px, 0) rotate(39deg);

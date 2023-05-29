@@ -12,7 +12,7 @@
 
     @for $i from 1 through 10 {
       &:nth-child(#{$i}) {
-        transition-delay: #{$i * .05 + 0.1}s;
+        transition-delay: #{$i * 0.05 + 0.1}s;
       }
     }
 
@@ -24,7 +24,7 @@
     @include vp-767 {
       @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
-          transition-delay: #{$i * .05 + 0.4}s;
+          transition-delay: #{$i * 0.05 + 0.4}s;
         }
       }
     }
@@ -70,7 +70,6 @@
 
 .intro__title,
 .intro__description {
-
   .word {
     overflow: hidden;
     position: relative;
@@ -148,8 +147,8 @@
     max-width: 104%;
     max-height: 104%;
     object-fit: cover;
-    opacity: .4;
-    filter: blur(8px) contrast(1) sepia(1) grayscale(1) brightness(.7);
+    opacity: 0.4;
+    filter: blur(8px) contrast(1) sepia(1) grayscale(1) brightness(0.7);
     background-color: $color-torch-red;
   }
 }

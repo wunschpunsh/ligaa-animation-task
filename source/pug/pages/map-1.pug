@@ -1,7 +1,7 @@
 extends ../components/base/layout
 
 block variables
-  - const title = "Анимации" //- на страницах кроме главной используйте О нас — ProjectName
+  - const title = "Карта - 1" //- на страницах кроме главной используйте О нас — ProjectName
   - const wrapperMods = ""
   - const hasHeader = true
   - const headerMods = ""
@@ -15,6 +15,3 @@ block main
     //- на странице запрещен "голый" код
     //- все блоки вставляются из папки pug/components/blocks
     +map(currentUrl, 1)
-
-
-block modals

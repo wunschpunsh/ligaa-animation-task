@@ -15,7 +15,7 @@
   padding: 10px 15px 0;
 }
 
-input:checked+.map-filter__label {
+input:checked + .map-filter__label {
   background-color: $color-maya-blue;
 
   svg {
@@ -47,7 +47,7 @@ input:checked {
   font-size: 18px;
   line-height: 21px;
   cursor: pointer;
-  transition: all $trans-default;
+  transition: opacity $trans-default;
   user-select: none;
 
   @include hover-focus {

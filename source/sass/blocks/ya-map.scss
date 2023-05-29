@@ -40,7 +40,7 @@
   pointer-events: none;
   opacity: 0;
   color: $color-default-white;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba($color-default-black, 0.3);
 
   &.is-active {
     opacity: 1;
@@ -55,7 +55,7 @@
 
   &__logo {
     svg {
-      filter: drop-shadow(4px 4px 8px rgba(34, 60, 80, 0.2));
+      filter: drop-shadow(4px 4px 8px rgba($color-nile-blue, 0.2));
     }
   }
 }

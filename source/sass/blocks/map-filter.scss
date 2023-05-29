@@ -26,7 +26,7 @@ input:checked + .map-filter__label {
 input:checked {
   @include focus {
     +.map-filter__label {
-      border: 2px solid #0032ff;
+      border: 2px solid $color-blue;
     }
   }
 

@@ -23,7 +23,7 @@
   max-width: 400px;
   width: max-content;
   display: flex;
-  box-shadow: 8px 8px 13px 1px rgba(34, 60, 80, 0.2);
+  box-shadow: 8px 8px 13px 1px rgba($color-nile-blue, 0.2);
   z-index: 3;
   transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
   min-height: 100px;
@@ -61,7 +61,7 @@
 }
 
 .placemark-balloon__head {
-  color: #aaa5a0;
+  color: $color-cloudy;
   font-size: 10px;
   line-height: 14px;
   margin: 0 0 10px 0;
@@ -117,7 +117,7 @@
 }
 
 .cluster-balloon__head {
-  color: #aaa5a0;
+  color: $color-cloudy;
   font-size: 10px;
   line-height: 14px;
   margin: 0 0 10px;

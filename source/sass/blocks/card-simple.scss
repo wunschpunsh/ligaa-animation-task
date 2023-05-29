@@ -5,7 +5,7 @@
   padding: 20px;
   min-height: 115px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba($color-default-white, 0.6);
 
   &--centered {
     justify-content: center;
@@ -13,7 +13,7 @@
   }
 
   &--dark {
-    background-color: #e3e3e3;
+    background-color: $color-gainsboro;
   }
 
   @include vp-1023 {
